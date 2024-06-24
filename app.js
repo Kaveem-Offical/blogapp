@@ -19,6 +19,7 @@ app.use(express.json());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 const secret = "jasdnkasdlkajsdlkk[pxopAISDKANSDN";
+const PORT = process.env.PORT || 8080;
 
 mongoose
   .connect(
@@ -26,7 +27,7 @@ mongoose
   )
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(8080, () => {
+    app.listen(PORT, () => {
       console.log(`Server is running on port : http://localhost:8080`);
     });
   })
